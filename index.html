@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Angel & Masha Coffee and Tea Order Form</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            background: linear-gradient(to bottom, #f9f3e9, #d5c1a1);
+            color: #3a2e1e;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto 60px;
+            background: white;
+            padding: 30px 40px 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #6b4226;
+            margin-bottom: 12px;
+        }
+        h3 {
+            color: #a05b29;
+            margin-top: 24px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: 700;
+            color: #5a4220;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 18px;
+            border: 2px solid #e4d5b8;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        input:focus, select:focus {
+            border-color: #a67c25;
+            outline: none;
+        }
+        button {
+            padding: 14px 26px;
+            background-color: #a67c25;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #c39d3d;
+        }
+        .menu, .info, .cart, .description {
+            margin-top: 30px;
+        }
+        .menu p.item {
+            font-weight: 700;
+            margin: 10px 0 6px;
+            color: #7a552f;
+        }
+        .cart {
+            background: #f9f3e9;
+            padding: 18px 20px;
+            border-radius: 10px;
+            box-shadow: inset 0 0 12px rgba(166,124,37,0.3);
+            margin-top: 40px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #e8d7ab;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item button {
+            background: transparent;
+            color: #a05b29;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            padding: 0 6px;
+        }
+        #totalPrice {
+            font-weight: 700;
+            font-size: 1.15rem;
+            margin-top: 18px;
+            color: #6b4226;
+            text-align: right;
+        }
+        .info p {
+            margin: 8px 0;
+            font-size: 1rem;
+            color: #5a4220;
+        }
+        .info strong {
+            color: #6b4226;
+        }
+
+        /* Background coffee beans at corners */
+        body::before, body::after {
+            content: "";
+            position: fixed;
+            width: 180px;
+            height: 180px;
+            background: url('https://i.ibb.co/LR9kXsr/coffee-bean.png') no-repeat center/contain;
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::before {
+            top: 10px;
+            left: 10px;
+            transform: rotate(10deg);
+        }
+        body::after {
+            bottom: 10px;
+            right: 10px;
+            transform: rotate(-20deg);
+        }
+
+        /* Top hero image */
+        .hero-img {
+            display: block;
+            margin: 0 auto 30px;
+            max-width: 250px;
+            border-radius: 12px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            border: 6px solid #f3e7bc;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 95%;
+                padding: 20px 25px 30px;
+            }
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .cart-item button {
+                margin-top: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" role="main" aria-label="Angel & Masha Coffee and Tea order form">
+        <img src="https://i.ibb.co/c8Wm7vW/angel-masha-coffee-tea.jpg" alt="Angel & Masha Coffee and Tea logo" class="hero-img" loading="lazy" />
+        <h1>Angel & Masha Coffee & Tea Cold Brew</h1>
+
+        <section class="description" aria-label="Product descriptions">
+            <h2>Product Descriptions</h2>
+            <h3>Coffee</h3>
+            <p>Roasted Specialty Origin Beans.</p>
+            <p>Profil Roasting: Medium To Dark</p>
+            <p>Acidity: Low</p>
+
+            <h3>V-Coffee Jelly Latte Aren Creamy Latte</h3>
+            <p>Low Calorie Full Cream Free Sucrose</p>
+            <p>Organic Palm Sugar (100% Aren) & Creamy (High Fiber)</p>
+
+            <h3>Americano Coffee</h3>
+            <p>It is prepared from the highest percentage of Arabica beans.</p>
+            <p>House Blend: 80% Arabica Gayo & 20% Robusta Temanggung.</p>
+            <p>Brewing: Espresso Machine & Cold Brew, not Vending Machine Coffee, are more different in quality.</p>
+
+            <h3>Coconut Latte Espresso Coffee Mocaccino</h3>
+            <p>100% concentrated of coffee Chocolate Full Cream Milk.</p>
+            <p>It is prepared from the highest percentage of Arabica beans.</p>
+            <p>House Blend: 80% Arabica Gayo & 20% Robusta Temanggung.</p>
+            <p>Brewing: Espresso Machine & Cold Brew, not Vending Machine Coffee, are more different in quality.</p>
+
+            <h3>Special Tea Blend</h3>
+            <p>Flavoured Ceylon Black Tea with Healthy Sweet (Zero Calorie, Sugar, and Carbo)</p>
+
+            <h3>Peach Tea, Blackcurrant Tea, Green Tea</h3>
+        </section>
+
+        <section class="info" aria-label="Pre-Order and Payment information">
+            <h2>Pre-Order &amp; Payment Info</h2>
+            <p><strong>Pre-Order BSSN-Sawangan Area :</strong> 0822-2711-7870 (Bow)</p>
+            <p><strong>Payment :</strong> BRI Bank 037801052869500 - Kartika Eko Hari Wib</p>
+        </section>
+
+        <section class="menu" aria-label="Menu items">
+            <h2>Menu</h2>
+            <p class="item">COFFEE (BOTTLE LARGE):</p>
+            <p>Americano - Rp. 50.000</p>
+            <p>Peach Americano - Rp. 54.000</p>
+            <p>Latte - Rp. 55.000</p>
+            <p>Aren Creamy Latte - Rp. 60.000</p>
+            <p>Coconut Coffee Latte - Rp. 60.000</p>
+            <p>Mocaccino - Rp. 55.000</p>
+
+            <p class="item">TEA (BOTTLE SMALL):</p>
+            <p>Peach Tea - Rp. 15.000</p>
+            <p>Green Tea - Rp. 15.000</p>
+            <p>Black Currant Tea - Rp. 15.000</p>
+            <p>Lychee Tea - Rp. 15.000</p>
+
+            <p class="item">PASTRY (COMING SOON):</p>
+            <p>Croffle - Rp. 8.000</p>
+        </section>
+
+        <form id="orderForm" aria-label="Order form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" aria-required="true">
+
+            <label for="location">Select Location:</label>
+            <select id="location" name="location" aria-required="true" required>
+                <option value="">-- Select Location --</option>
+                <option value="Lobby Gedung Sekretaris Utama">Lobby Gedung Sekretaris Utama</option>
+                <option value="Lobby Gedung Deputi 3">Lobby Gedung Deputi 3</option>
+                <option value="Lobby Gedung Deputi 4">Lobby Gedung Deputi 4</option>
+            </select>
+
+            <label for="paymentProof">Upload Payment Proof (Bukti Transfer):</label>
+            <input type="file" id="paymentProof" name="paymentProof" accept="image/*" required aria-required="true" aria-describedby="fileHelp" />
+            <small id="fileHelp" style="color:#6b4226; font-size:0.85rem; display:block; margin-top:-12px; margin-bottom:12px;">Accepted file types: Images</small>
+
+            <label for="item">Select Item:</label>
+            <select id="item" name="item" aria-required="true" required>
+                <option value="Americano">Americano - Rp. 50.000</option>
+                <option value="Peach Americano">Peach Americano - Rp. 54.000</option>
+                <option value="Latte">Latte - Rp. 55.000</option>
+                <option value="Aren Creamy Latte">Aren Creamy Latte - Rp. 60.000</option>
+                <option value="Coconut Coffee Latte">Coconut Coffee Latte - Rp. 60.000</option>
+                <option value="Mocaccino">Mocaccino - Rp. 55.000</option>
+                <option value="Peach Tea">Peach Tea - Rp. 15.000</option>
+                <option value="Green Tea">Green Tea - Rp. 15.000</option>
+                <option value="Black Currant Tea">Black Currant Tea - Rp. 15.000</option>
+                <option value="Lychee Tea">Lychee Tea - Rp. 15.000</option>
+                <option value="Croffle">Croffle - Rp. 8.000</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required aria-required="true">
+
+            <button type="button" id="addToCart">Add to Cart</button>
+        </form>
+
+        <section class="cart" aria-label="Your shopping cart">
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <p id="totalPrice">Total Price: Rp. 0</p>
+            <button id="submitOrder" disabled>Submit Order</button>
+        </section>
+    </div>
+
+    <script>
+        const cart = [];
+        const prices = {
+            "Americano": 50000,
+            "Peach Americano": 54000,
+            "Latte": 55000,
+            "Aren Creamy Latte": 60000,
+            "Coconut Coffee Latte": 60000,
+            "Mocaccino": 55000,
+            "Peach Tea": 15000,
+            "Green Tea": 15000,
+            "Black Currant Tea": 15000,
+            "Lychee Tea": 15000,
+            "Croffle": 8000
+        };
+
+        const cartItemsDiv = document.getElementById('cartItems');
+        const totalPriceP = document.getElementById('totalPrice');
+        const submitOrderBtn = document.getElementById('submitOrder');
+
+        document.getElementById('addToCart').onclick = function() {
+            const itemSelect = document.getElementById('item');
+            const quantityInput = document.getElementById('quantity');
+
+            const item = itemSelect.value;
+            const quantity = parseInt(quantityInput.value);
+            if (quantity < 1) {
+                alert("Quantity must be at least 1");
+                return;
+            }
+
+            const price = prices[item] * quantity;
+
+            // Add or update item in cart
+            const existingIndex = cart.findIndex(i => i.item === item);
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += quantity;
+                cart[existingIndex].price += price;
+            } else {
+                cart.push({ item, quantity, price });
+            }
+
+            updateCart();
+            quantityInput.value = "1";
+            itemSelect.focus();
+        };
+
+        function updateCart() {
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((cartItem, index) => {
+                total += cartItem.price;
+                cartItemsDiv.innerHTML += `
+                    <div class="cart-item">
+                        <span>${cartItem.quantity} x ${cartItem.item} - Rp. ${cartItem.price.toLocaleString('id-ID')}</span>
+                        <button onclick="removeFromCart(${index})" aria-label="Remove ${cartItem.item}">Remove</button>
+                    </div>`;
+            });
+
+            totalPriceP.textContent = `Total Price: Rp. ${total.toLocaleString('id-ID')}`;
+
+            submitOrderBtn.disabled = cart.length === 0;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        window.removeFromCart = removeFromCart;
+
+        function readFileAsDataURL(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        submitOrderBtn.onclick = async function() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+            const location = document.getElementById('location').value;
+            const paymentProofInput = document.getElementById('paymentProof');
+
+            if (!name || !location) {
+                alert("Please fill in your Name and Location.");
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            if (paymentProofInput.files.length === 0) {
+                alert("Please upload your payment proof.");
+                return;
+            }
+
+            submitOrderBtn.disabled = true;
+            submitOrderBtn.textContent = 'Submitting...';
+
+            try {
+                // Read file as base64 data URL
+                const file = paymentProofInput.files[0];
+                const fileName = file.name;
+                const fileDataUrl = await readFileAsDataURL(file);
+
+                // Remove data prefix so only base64 remains
+                const base64Index = fileDataUrl.indexOf('base64,') + 7;
+                const base64Data = fileDataUrl.substring(base64Index);
+
+                // Upload file to Drive via Apps Script and get URL back
+                google.script.run.withSuccessHandler(function(fileUrl) {
+                    // After successful upload, send order data
+                    const orderData = {
+                        name,
+                        location,
+                        items: cart.map(item => `${item.quantity} x ${item.item}`).join(', '),
+                        totalPrice: cart.reduce((sum, item) => sum + item.price, 0),
+                        paymentProofUrl: fileUrl
+                    };
+
+                    google.script.run.withSuccessHandler(function() {
+                        alert('Order submitted successfully!');
+                        document.getElementById('orderForm').reset();
+                        cart.length = 0;
+                        updateCart();
+                        submitOrderBtn.disabled = false;
+                        submitOrderBtn.textContent = 'Submit Order';
+                    }).submitForm(orderData);
+
+                }).uploadFile(fileName, base64Data);
+
+            } catch (error) {
+                alert('Failed to upload payment proof, please try again.');
+                submitOrderBtn.disabled = false;
+                submitOrderBtn.textContent = 'Submit Order';
+            }
+        };
+    </script>
+</body>
+</html>
